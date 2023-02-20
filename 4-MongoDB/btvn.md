@@ -2,39 +2,39 @@
 
    <!-- query:  -->
 
-    db.manageBook.find({})
+    <!-- db.manageBook.find({}) -->
 
    <!-- result: -->
 
 2. Tìm 1 quyển sách theo \_id
-   <!-- query:  -->
+   query:
 
-   db.manageBook.find({\_id: ObjectId("63f32fce3789196fcc69e883")})
+   <!-- db.manageBook.find({\_id: ObjectId("63f32fce3789196fcc69e883")}) -->
 
-   <!-- result: -->
-
-   {
-   \_id: ObjectId("63f32fce3789196fcc69e883"),
-   title: 'To Kill a Mockingbird',
-   author: 'Harper Lee',
-   publication_date: '1960-07-11',
-   pages: 281,
-   genres: [
-   'Novel',
-   'Fiction',
-   'Literary'
-   ],
-   publisher: {
-   name: 'J. B. Lippincott & Co.',
-   location: 'Philadelphia, PA'
-   }
-   }
+   result:
+   <!--
+      {
+      \_id: ObjectId("63f32fce3789196fcc69e883"),
+      title: 'To Kill a Mockingbird',
+      author: 'Harper Lee',
+      publication_date: '1960-07-11',
+      pages: 281,
+      genres: [
+      'Novel',
+      'Fiction',
+      'Literary'
+      ],
+      publisher: {
+      name: 'J. B. Lippincott & Co.',
+      location: 'Philadelphia, PA'
+      }
+      } -->
 
 3. Thêm 1 quyển sách mới (insert toàn bộ thông tin)
 
-   <!-- query:  -->
+   query:
 
-   db.manageBook.insertOne({
+   <!-- db.manageBook.insertOne({
    "title": "The Fountainhead",
    "author": "Ayn Rand",
    "publication_date": "1943-04-15",
@@ -44,24 +44,24 @@
    "name": "Bobbs-Merrill Company",
    "location": "American"
    }
-   })
+   }) -->
 
-   <!-- result: -->
+   result:
 
-   {
+   <!-- {
    acknowledged: true,
    insertedId: ObjectId("63f334cae6cef1c0afbc2488")
-   }
+   } -->
 
 4. Tìm 1 quyển sách có lớn hơn 400 trang và đúng 2 thể loại
 
-   <!-- query:  -->
+   query:
 
-   db.manageBook.find({"pages" : {$gt : 400}, "genres": {$size: 2}})
+   <!-- db.manageBook.find({"pages" : {$gt : 400}, "genres": {$size: 2}}) -->
 
-   <!-- result: -->
+   result:
 
-   {
+   <!-- {
    \_id: ObjectId("63f32fce3789196fcc69e887"),
    title: 'One Hundred Years of Solitude',
    author: 'Gabriel García Márquez',
@@ -90,7 +90,7 @@
    name: 'George Allen & Unwin',
    location: 'London, UK'
    }
-   }
+   } -->
 
 5.Update thông tin của quyển sách có title là "One Hundred Years Of Solitude"
 
@@ -98,27 +98,25 @@
 - genres
 - Publisher
 
-      <!-- query:  -->
+  query:
 
-  db.manageBook.updateOne({"title": "One Hundred Years of Solitude"}, {$set : {"publication_date":"2000-10-16", "genres":["Dung", "LTD"], "publisher": {"name":"LTD", "location":"HN,VN"}}})
+  <!-- db.manageBook.updateOne({"title": "One Hundred Years of Solitude"}, {$set : {"publication_date":"2000-10-16", "genres":["Dung", "LTD"], "publisher": {"name":"LTD", "location":"HN,VN"}}}) -->
 
-      <!-- result: -->
+  result:
 
-  {
+  <!-- {
   acknowledged: true,
   insertedId: null,
   matchedCount: 1,
   modifiedCount: 1,
   upsertedCount: 0
-  }
-
-
+  } -->
 
   6.Delete những quyển sách xuất bản trước năm 1967
-  <!-- query:  -->
+  query:
 
-  db.manageBook.deleteMany({"publication_date": { $lt: ("1967-01-01")}})
+  <!-- db.manageBook.deleteMany({"publication_date": { $lt: ("1967-01-01")}}) -->
 
-    <!-- result: -->
+  result:
 
-  db.manageBook.deleteMany({"publication_date": { $lt: ("1967-01-01")}})
+  <!-- db.manageBook.deleteMany({"publication_date": { $lt: ("1967-01-01")}}) -->

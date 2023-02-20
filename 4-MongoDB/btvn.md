@@ -1,21 +1,20 @@
 1.Tìm toàn bộ quyển sách trong document book
 
-      query:
+query:
 
 ```
 db.manageBook.find({})
 ```
 
-      result:
+result:
 
 2.  Tìm 1 quyển sách theo \_id
-    query:
+query:
 
 ```
  db.manageBook.find({\_id: ObjectId("63f32fce3789196fcc69e883")})
 ```
-
-    result:
+result:
 
     ```
        {

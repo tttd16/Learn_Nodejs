@@ -1,78 +1,79 @@
 1.Tìm toàn bộ quyển sách trong document book
 
-   <!-- query:  -->
+      query:
 
 ```
 db.manageBook.find({})
 ```
 
-   <!-- result: -->
+      result:
 
-2. Tìm 1 quyển sách theo \_id
-   query:
-
-   ```
-   <!-- db.manageBook.find({\_id: ObjectId("63f32fce3789196fcc69e883")}) -->
-   ```
-
-   result:
-
-   ```
-      {
-      \_id: ObjectId("63f32fce3789196fcc69e883"),
-      title: 'To Kill a Mockingbird',
-      author: 'Harper Lee',
-      publication_date: '1960-07-11',
-      pages: 281,
-      genres: [
-      'Novel',
-      'Fiction',
-      'Literary'
-      ],
-      publisher: {
-      name: 'J. B. Lippincott & Co.',
-      location: 'Philadelphia, PA'
-      }
-      }
-   ```
-
-3. Thêm 1 quyển sách mới (insert toàn bộ thông tin)
-
-   query:
-
-   ```
-   db.manageBook.insertOne({
-   "title": "The Fountainhead",
-   "author": "Ayn Rand",
-   "publication_date": "1943-04-15",
-   "pages": 1210,
-   "genres": ["Philosophical novels"],
-   "publisher": {
-   "name": "Bobbs-Merrill Company",
-   "location": "American"
-   }
-   })
-   ```
-
-   result:
-
-   ```
-   {
-   acknowledged: true,
-   insertedId: ObjectId("63f334cae6cef1c0afbc2488")
-   }
-   ```
-
-4. Tìm 1 quyển sách có lớn hơn 400 trang và đúng 2 thể loại
-
-   query:
-
-   ```
-   db.manageBook.find({"pages" : {$gt : 400}, "genres": {$size: 2}})
-   ```
+2.  Tìm 1 quyển sách theo \_id
+    query:
 
 ```
-   result:
+ db.manageBook.find({\_id: ObjectId("63f32fce3789196fcc69e883")})
+```
+
+    result:
+
+    ```
+       {
+       \_id: ObjectId("63f32fce3789196fcc69e883"),
+       title: 'To Kill a Mockingbird',
+       author: 'Harper Lee',
+       publication_date: '1960-07-11',
+       pages: 281,
+       genres: [
+       'Novel',
+       'Fiction',
+       'Literary'
+       ],
+       publisher: {
+       name: 'J. B. Lippincott & Co.',
+       location: 'Philadelphia, PA'
+       }
+       }
+    ```
+
+    <!--  -->
+
+3.  Thêm 1 quyển sách mới (insert toàn bộ thông tin)
+
+    query:
+
+    ```
+    db.manageBook.insertOne({
+    "title": "The Fountainhead",
+    "author": "Ayn Rand",
+    "publication_date": "1943-04-15",
+    "pages": 1210,
+    "genres": ["Philosophical novels"],
+    "publisher": {
+    "name": "Bobbs-Merrill Company",
+    "location": "American"
+    }
+    })
+    ```
+
+    result:
+
+    ```
+    {
+    acknowledged: true,
+    insertedId: ObjectId("63f334cae6cef1c0afbc2488")
+    }
+    ```
+
+4.  Tìm 1 quyển sách có lớn hơn 400 trang và đúng 2 thể loại
+
+    query:
+
+    ```
+    db.manageBook.find({"pages" : {$gt : 400}, "genres": {$size: 2}})
+    ```
+
+    result:
 
 ```
 
@@ -152,7 +153,5 @@ result:
 ```
 
 db.manageBook.deleteMany({"publication_date": { $lt: ("1967-01-01")}})
-
-```
 
 ```

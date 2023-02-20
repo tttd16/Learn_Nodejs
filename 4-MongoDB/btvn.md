@@ -9,8 +9,9 @@ db.manageBook.find({})
 result:
 
 2.  Tìm 1 quyển sách theo \_id
-query:
 
+
+query:
 ```
  db.manageBook.find({\_id: ObjectId("63f32fce3789196fcc69e883")})
 ```
@@ -35,7 +36,6 @@ result:
        }
     ```
 
-    <!--  -->
 
 3.  Thêm 1 quyển sách mới (insert toàn bộ thông tin)
 
